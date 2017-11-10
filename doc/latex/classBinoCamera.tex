@@ -1,0 +1,112 @@
+\hypertarget{classBinoCamera}{}\section{Bino\+Camera Class Reference}
+\label{classBinoCamera}\index{Bino\+Camera@{Bino\+Camera}}
+
+
+\hyperlink{classBinoCamera}{Bino\+Camera} 类头文件  
+
+
+
+
+{\ttfamily \#include $<$Bino\+Camera.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Bino\+Camera} (\hyperlink{structBinoCameraParameterList}{Bino\+Camera\+Parameter\+List} para\+List)\hypertarget{classBinoCamera_a6fd6ce57220e1d4bd1dcfa2a72d7014c}{}\label{classBinoCamera_a6fd6ce57220e1d4bd1dcfa2a72d7014c}
+
+\item 
+void \hyperlink{classBinoCamera_a7e675afbd9b11a855b8816abe413f51b}{get\+Org\+Image} (cv\+::\+Mat \&L, cv\+::\+Mat \&R)
+\begin{DoxyCompactList}\small\item\em 得到双目原始图像 \end{DoxyCompactList}\item 
+void \hyperlink{classBinoCamera_a0ca8fdc7baebb847cec029094a1308d8}{get\+Rect\+Image} (cv\+::\+Mat \&L, cv\+::\+Mat \&R)
+\begin{DoxyCompactList}\small\item\em 得到双目畸变矫正后图像 \end{DoxyCompactList}\item 
+void \hyperlink{classBinoCamera_ac9e29c484ef2a61ce42e8c3dfa41b714}{get\+Disparity} (const cv\+::\+Mat \&rect\+Left, const cv\+::\+Mat \&rect\+Right, cv\+::\+Mat \&disparate\+U16\+Mat)
+\begin{DoxyCompactList}\small\item\em 得到得到视差图 \end{DoxyCompactList}\item 
+bool \hyperlink{classBinoCamera_a7dc100e891a67b59295e79b93241e16f}{get\+Camera\+Parameter} (cv\+::\+Mat \&para)
+\begin{DoxyCompactList}\small\item\em 获取相机参数 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classBinoCamera}{Bino\+Camera} 类头文件 
+
+\subsection{Member Function Documentation}
+\index{Bino\+Camera@{Bino\+Camera}!get\+Camera\+Parameter@{get\+Camera\+Parameter}}
+\index{get\+Camera\+Parameter@{get\+Camera\+Parameter}!Bino\+Camera@{Bino\+Camera}}
+\subsubsection[{\texorpdfstring{get\+Camera\+Parameter(cv\+::\+Mat \&para)}{getCameraParameter(cv::Mat &para)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Bino\+Camera\+::get\+Camera\+Parameter (
+\begin{DoxyParamCaption}
+\item[{cv\+::\+Mat \&}]{para}
+\end{DoxyParamCaption}
+)}\hypertarget{classBinoCamera_a7dc100e891a67b59295e79b93241e16f}{}\label{classBinoCamera_a7dc100e891a67b59295e79b93241e16f}
+
+
+获取相机参数 
+
+
+\begin{DoxyParams}{Parameters}
+{\em para} & 返回\+Mat数据的类型为\+C\+V\+\_\+64\+F\+C1，row = 1, col = 7，数据内容为： fx,fy,cx,cy,image\+\_\+wideth,image\+\_\+height,bf \\
+\hline
+\end{DoxyParams}
+\index{Bino\+Camera@{Bino\+Camera}!get\+Disparity@{get\+Disparity}}
+\index{get\+Disparity@{get\+Disparity}!Bino\+Camera@{Bino\+Camera}}
+\subsubsection[{\texorpdfstring{get\+Disparity(const cv\+::\+Mat \&rect\+Left, const cv\+::\+Mat \&rect\+Right, cv\+::\+Mat \&disparate\+U16\+Mat)}{getDisparity(const cv::Mat &rectLeft, const cv::Mat &rectRight, cv::Mat &disparateU16Mat)}}]{\setlength{\rightskip}{0pt plus 5cm}void Bino\+Camera\+::get\+Disparity (
+\begin{DoxyParamCaption}
+\item[{const cv\+::\+Mat \&}]{rect\+Left, }
+\item[{const cv\+::\+Mat \&}]{rect\+Right, }
+\item[{cv\+::\+Mat \&}]{disparate\+U16\+Mat}
+\end{DoxyParamCaption}
+)}\hypertarget{classBinoCamera_ac9e29c484ef2a61ce42e8c3dfa41b714}{}\label{classBinoCamera_ac9e29c484ef2a61ce42e8c3dfa41b714}
+
+
+得到得到视差图 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rect\+Left} & 输入左相机矫正后图像 \\
+\hline
+{\em rect\+Right} & 输入右相机矫正后图像 \\
+\hline
+{\em disparate\+U16\+Mat} & 返回uint16类型的视差图，想得到真实视差值需要转换为float型数据，转换例子： mat\+U16.\+convert\+To( mat\+F32, C\+V\+\_\+32F, 1.\+0/16); \\
+\hline
+\end{DoxyParams}
+\index{Bino\+Camera@{Bino\+Camera}!get\+Org\+Image@{get\+Org\+Image}}
+\index{get\+Org\+Image@{get\+Org\+Image}!Bino\+Camera@{Bino\+Camera}}
+\subsubsection[{\texorpdfstring{get\+Org\+Image(cv\+::\+Mat \&\+L, cv\+::\+Mat \&\+R)}{getOrgImage(cv::Mat &L, cv::Mat &R)}}]{\setlength{\rightskip}{0pt plus 5cm}void Bino\+Camera\+::get\+Org\+Image (
+\begin{DoxyParamCaption}
+\item[{cv\+::\+Mat \&}]{L, }
+\item[{cv\+::\+Mat \&}]{R}
+\end{DoxyParamCaption}
+)}\hypertarget{classBinoCamera_a7e675afbd9b11a855b8816abe413f51b}{}\label{classBinoCamera_a7e675afbd9b11a855b8816abe413f51b}
+
+
+得到双目原始图像 
+
+
+\begin{DoxyParams}{Parameters}
+{\em L} & 返回左相机图像 \\
+\hline
+{\em R} & 返回右相机图像 \\
+\hline
+\end{DoxyParams}
+\index{Bino\+Camera@{Bino\+Camera}!get\+Rect\+Image@{get\+Rect\+Image}}
+\index{get\+Rect\+Image@{get\+Rect\+Image}!Bino\+Camera@{Bino\+Camera}}
+\subsubsection[{\texorpdfstring{get\+Rect\+Image(cv\+::\+Mat \&\+L, cv\+::\+Mat \&\+R)}{getRectImage(cv::Mat &L, cv::Mat &R)}}]{\setlength{\rightskip}{0pt plus 5cm}void Bino\+Camera\+::get\+Rect\+Image (
+\begin{DoxyParamCaption}
+\item[{cv\+::\+Mat \&}]{L, }
+\item[{cv\+::\+Mat \&}]{R}
+\end{DoxyParamCaption}
+)}\hypertarget{classBinoCamera_a0ca8fdc7baebb847cec029094a1308d8}{}\label{classBinoCamera_a0ca8fdc7baebb847cec029094a1308d8}
+
+
+得到双目畸变矫正后图像 
+
+
+\begin{DoxyParams}{Parameters}
+{\em L} & 返回左相机矫正后图像 \\
+\hline
+{\em R} & 返回右相机矫正后图像 \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Bino\+Camera.\+h\end{DoxyCompactItemize}

@@ -27,9 +27,11 @@ $make
 ```
 ##### [OpenCV详细配置请见OpenCV官方Git](https://github.com/opencv/opencv)
 
-## 2.下载Bino_Stereo_SDK
+## 2.使用Bino_Stereo_SDK
 ```
 $git clone https://github.com/Bino3D/Bino_Stereo_SDK.git
+$cd Bino_Stereo_SDK
+其中lib文件夹下内容是.so文件，include文件夹下内容是头文件。
 ```
 
 ## 3.编译例子程序

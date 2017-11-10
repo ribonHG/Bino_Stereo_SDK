@@ -1,8 +1,5 @@
-checkData/
-KeyFrameTrajectory.txt
 build/
 *~
-lib/
 *.pcd
 *.swp
 *.jpg

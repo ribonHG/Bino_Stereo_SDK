@@ -41,7 +41,7 @@ int main(int argc, char **argv){
         else if(run_para == "disparity"){
 			camera->getRectImage(left, right);
             camera->getDisparity(left, right, disp);
-            disp.convertTo( disp, CV_8U, 255.0/(48*8) );
+            disp.convertTo( disp, CV_8U, 255.0/(48*16) );
             cv::applyColorMap( disp, disp, cv::COLORMAP_JET );
             cv::imshow("image_disparity", disp);
         }

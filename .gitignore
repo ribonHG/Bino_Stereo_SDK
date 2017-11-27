@@ -4,3 +4,6 @@ build/
 *.swp
 *.jpg
 Debug/src/
+params/11_27/
+params_bak/
+bin/

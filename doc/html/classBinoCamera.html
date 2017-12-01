@@ -111,6 +111,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7dc100e891a67b59295e79b93241e16f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBinoCamera.html#a7dc100e891a67b59295e79b93241e16f">getCameraParameter</a> (cv::Mat &amp;para)</td></tr>
 <tr class="memdesc:a7dc100e891a67b59295e79b93241e16f"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取相机参数  <a href="#a7dc100e891a67b59295e79b93241e16f">More...</a><br /></td></tr>
 <tr class="separator:a7dc100e891a67b59295e79b93241e16f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6bf7b4beec317a6e7bc8a66f3f255fd7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBinoCamera.html#a6bf7b4beec317a6e7bc8a66f3f255fd7">setImuCorrection</a> (float deadmin, float deadmax, float axerr, float ayerr, float azerr)</td></tr>
+<tr class="memdesc:a6bf7b4beec317a6e7bc8a66f3f255fd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">imu原始数据校正  <a href="#a6bf7b4beec317a6e7bc8a66f3f255fd7">More...</a><br /></td></tr>
+<tr class="separator:a6bf7b4beec317a6e7bc8a66f3f255fd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e556254521060a48ddd6678bc9a3380"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBinoCamera.html#a1e556254521060a48ddd6678bc9a3380">getImuRawData</a> (std::vector&lt; <a class="el" href="structImuData.html">ImuData</a> &gt; &amp;imudatas, int32_t &amp;timestamp)</td></tr>
+<tr class="memdesc:a1e556254521060a48ddd6678bc9a3380"><td class="mdescLeft">&#160;</td><td class="mdescRight">得到imu原始数据  <a href="#a1e556254521060a48ddd6678bc9a3380">More...</a><br /></td></tr>
+<tr class="separator:a1e556254521060a48ddd6678bc9a3380"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5662fa1d861687af9577508be18ae29d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBinoCamera.html#a5662fa1d861687af9577508be18ae29d">ImuRect</a> (<a class="el" href="structImuData.html">ImuData</a> imu, float timestamp, float *q)</td></tr>
+<tr class="memdesc:a5662fa1d861687af9577508be18ae29d"><td class="mdescLeft">&#160;</td><td class="mdescRight">imu解算程序  <a href="#a5662fa1d861687af9577508be18ae29d">More...</a><br /></td></tr>
+<tr class="separator:a5662fa1d861687af9577508be18ae29d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="classBinoCamera.html" title="BinoCamera 类头文件 ">BinoCamera</a> 类头文件 </p>
@@ -181,6 +190,41 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a1e556254521060a48ddd6678bc9a3380"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BinoCamera::getImuRawData </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="structImuData.html">ImuData</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>imudatas</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t &amp;&#160;</td>
+          <td class="paramname"><em>timestamp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>得到imu原始数据 </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">imudatas</td><td>imu的原始数据 </td></tr>
+    <tr><td class="paramname">timestamp</td><td>图像帧曝光时刻的时间戳 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="a7e675afbd9b11a855b8816abe413f51b"></a>
 <div class="memitem">
 <div class="memproto">
@@ -245,6 +289,104 @@ Public Member Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">L</td><td>返回左相机矫正后图像 </td></tr>
     <tr><td class="paramname">R</td><td>返回右相机矫正后图像 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a5662fa1d861687af9577508be18ae29d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BinoCamera::ImuRect </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structImuData.html">ImuData</a>&#160;</td>
+          <td class="paramname"><em>imu</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>timestamp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float *&#160;</td>
+          <td class="paramname"><em>q</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>imu解算程序 </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">imu</td><td>imu原始数据 </td></tr>
+    <tr><td class="paramname">timestamp</td><td>两次imu数据采集之间的时间戳 </td></tr>
+    <tr><td class="paramname">q</td><td>四元数 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a6bf7b4beec317a6e7bc8a66f3f255fd7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BinoCamera::setImuCorrection </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>deadmin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>deadmax</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>axerr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>ayerr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>azerr</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>imu原始数据校正 </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">deadmin</td><td>死区最小值 </td></tr>
+    <tr><td class="paramname">deadmax</td><td>死区最大值 </td></tr>
+    <tr><td class="paramname">axerr</td><td>加速度计x轴零偏校正 </td></tr>
+    <tr><td class="paramname">ayerr</td><td>加速度计y轴零偏校正 </td></tr>
+    <tr><td class="paramname">azerr</td><td>加速度计z轴零偏校正 </td></tr>
   </table>
   </dd>
 </dl>

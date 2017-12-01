@@ -22,7 +22,13 @@ void \hyperlink{classBinoCamera_a0ca8fdc7baebb847cec029094a1308d8}{get\+Rect\+Im
 void \hyperlink{classBinoCamera_ac9e29c484ef2a61ce42e8c3dfa41b714}{get\+Disparity} (const cv\+::\+Mat \&rect\+Left, const cv\+::\+Mat \&rect\+Right, cv\+::\+Mat \&disparate\+U16\+Mat)
 \begin{DoxyCompactList}\small\item\em 得到得到视差图 \end{DoxyCompactList}\item 
 bool \hyperlink{classBinoCamera_a7dc100e891a67b59295e79b93241e16f}{get\+Camera\+Parameter} (cv\+::\+Mat \&para)
-\begin{DoxyCompactList}\small\item\em 获取相机参数 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em 获取相机参数 \end{DoxyCompactList}\item 
+void \hyperlink{classBinoCamera_a6bf7b4beec317a6e7bc8a66f3f255fd7}{set\+Imu\+Correction} (float deadmin, float deadmax, float axerr, float ayerr, float azerr)
+\begin{DoxyCompactList}\small\item\em imu原始数据校正 \end{DoxyCompactList}\item 
+void \hyperlink{classBinoCamera_a1e556254521060a48ddd6678bc9a3380}{get\+Imu\+Raw\+Data} (std\+::vector$<$ \hyperlink{structImuData}{Imu\+Data} $>$ \&imudatas, int32\+\_\+t \&timestamp)
+\begin{DoxyCompactList}\small\item\em 得到imu原始数据 \end{DoxyCompactList}\item 
+void \hyperlink{classBinoCamera_a5662fa1d861687af9577508be18ae29d}{Imu\+Rect} (\hyperlink{structImuData}{Imu\+Data} imu, float timestamp, float $\ast$q)
+\begin{DoxyCompactList}\small\item\em imu解算程序 \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -67,6 +73,25 @@ bool \hyperlink{classBinoCamera_a7dc100e891a67b59295e79b93241e16f}{get\+Camera\+
 {\em disparate\+U16\+Mat} & 返回uint16类型的视差图，想得到真实视差值需要转换为float型数据，转换例子： mat\+U16.\+convert\+To( mat\+F32, C\+V\+\_\+32F, 1.\+0/16); \\
 \hline
 \end{DoxyParams}
+\index{Bino\+Camera@{Bino\+Camera}!get\+Imu\+Raw\+Data@{get\+Imu\+Raw\+Data}}
+\index{get\+Imu\+Raw\+Data@{get\+Imu\+Raw\+Data}!Bino\+Camera@{Bino\+Camera}}
+\subsubsection[{\texorpdfstring{get\+Imu\+Raw\+Data(std\+::vector$<$ Imu\+Data $>$ \&imudatas, int32\+\_\+t \&timestamp)}{getImuRawData(std::vector< ImuData > &imudatas, int32_t &timestamp)}}]{\setlength{\rightskip}{0pt plus 5cm}void Bino\+Camera\+::get\+Imu\+Raw\+Data (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ {\bf Imu\+Data} $>$ \&}]{imudatas, }
+\item[{int32\+\_\+t \&}]{timestamp}
+\end{DoxyParamCaption}
+)}\hypertarget{classBinoCamera_a1e556254521060a48ddd6678bc9a3380}{}\label{classBinoCamera_a1e556254521060a48ddd6678bc9a3380}
+
+
+得到imu原始数据 
+
+
+\begin{DoxyParams}{Parameters}
+{\em imudatas} & imu的原始数据 \\
+\hline
+{\em timestamp} & 图像帧曝光时刻的时间戳 \\
+\hline
+\end{DoxyParams}
 \index{Bino\+Camera@{Bino\+Camera}!get\+Org\+Image@{get\+Org\+Image}}
 \index{get\+Org\+Image@{get\+Org\+Image}!Bino\+Camera@{Bino\+Camera}}
 \subsubsection[{\texorpdfstring{get\+Org\+Image(cv\+::\+Mat \&\+L, cv\+::\+Mat \&\+R)}{getOrgImage(cv::Mat &L, cv::Mat &R)}}]{\setlength{\rightskip}{0pt plus 5cm}void Bino\+Camera\+::get\+Org\+Image (
@@ -103,6 +128,56 @@ bool \hyperlink{classBinoCamera_a7dc100e891a67b59295e79b93241e16f}{get\+Camera\+
 {\em L} & 返回左相机矫正后图像 \\
 \hline
 {\em R} & 返回右相机矫正后图像 \\
+\hline
+\end{DoxyParams}
+\index{Bino\+Camera@{Bino\+Camera}!Imu\+Rect@{Imu\+Rect}}
+\index{Imu\+Rect@{Imu\+Rect}!Bino\+Camera@{Bino\+Camera}}
+\subsubsection[{\texorpdfstring{Imu\+Rect(\+Imu\+Data imu, float timestamp, float $\ast$q)}{ImuRect(ImuData imu, float timestamp, float *q)}}]{\setlength{\rightskip}{0pt plus 5cm}void Bino\+Camera\+::\+Imu\+Rect (
+\begin{DoxyParamCaption}
+\item[{{\bf Imu\+Data}}]{imu, }
+\item[{float}]{timestamp, }
+\item[{float $\ast$}]{q}
+\end{DoxyParamCaption}
+)}\hypertarget{classBinoCamera_a5662fa1d861687af9577508be18ae29d}{}\label{classBinoCamera_a5662fa1d861687af9577508be18ae29d}
+
+
+imu解算程序 
+
+
+\begin{DoxyParams}{Parameters}
+{\em imu} & imu原始数据 \\
+\hline
+{\em timestamp} & 两次imu数据采集之间的时间戳 \\
+\hline
+{\em q} & 四元数 \\
+\hline
+\end{DoxyParams}
+\index{Bino\+Camera@{Bino\+Camera}!set\+Imu\+Correction@{set\+Imu\+Correction}}
+\index{set\+Imu\+Correction@{set\+Imu\+Correction}!Bino\+Camera@{Bino\+Camera}}
+\subsubsection[{\texorpdfstring{set\+Imu\+Correction(float deadmin, float deadmax, float axerr, float ayerr, float azerr)}{setImuCorrection(float deadmin, float deadmax, float axerr, float ayerr, float azerr)}}]{\setlength{\rightskip}{0pt plus 5cm}void Bino\+Camera\+::set\+Imu\+Correction (
+\begin{DoxyParamCaption}
+\item[{float}]{deadmin, }
+\item[{float}]{deadmax, }
+\item[{float}]{axerr, }
+\item[{float}]{ayerr, }
+\item[{float}]{azerr}
+\end{DoxyParamCaption}
+)}\hypertarget{classBinoCamera_a6bf7b4beec317a6e7bc8a66f3f255fd7}{}\label{classBinoCamera_a6bf7b4beec317a6e7bc8a66f3f255fd7}
+
+
+imu原始数据校正 
+
+
+\begin{DoxyParams}{Parameters}
+{\em deadmin} & 死区最小值 \\
+\hline
+{\em deadmax} & 死区最大值 \\
+\hline
+{\em axerr} & 加速度计x轴零偏校正 \\
+\hline
+{\em ayerr} & 加速度计y轴零偏校正 \\
+\hline
+{\em azerr} & 加速度计z轴零偏校正 \\
 \hline
 \end{DoxyParams}
 

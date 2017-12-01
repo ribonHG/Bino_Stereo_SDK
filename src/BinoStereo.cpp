@@ -11,9 +11,6 @@ int main(int argc, char **argv){
 		cerr << endl << "Usage: ./stereo_bino /dev/video* path_to_intrinsics path_to_extrinsics raw/rect/disparity" << endl;
 		return 1;
 	}
-//	std::string intrinsuc_file = argv[2]; 
-//	std::string extrinsic_file = argv[3];
-//	std::string video = argv[1];
 
     BinoCameraParameterList paraList;
     paraList.devPath = argv[1];
@@ -41,7 +38,7 @@ int main(int argc, char **argv){
         else if(run_para == "disparity"){
 			camera->getRectImage(left, right);
             camera->getDisparity(left, right, disp);
-            disp.convertTo( disp, CV_8U, 255.0/(64*16) );
+            disp.convertTo( disp, CV_8U, 255.0/(48*8) );
             cv::applyColorMap( disp, disp, cv::COLORMAP_JET );
             cv::imshow("image_disparity", disp);
         }

@@ -91,4 +91,4 @@ $./run_imu.sh
 查看
 ```
 ## 7.购买链接
-[Taobao](https://item.taobao.com/item.htm?spm=a230r.1.14.36.30447e471pexT6&id=562336856228&ns=1&abbucket=1#detail)
+[链接](https://item.taobao.com/item.htm?spm=a230r.1.14.36.30447e471pexT6&id=562336856228&ns=1&abbucket=1#detail)

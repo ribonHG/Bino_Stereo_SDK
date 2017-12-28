@@ -36,9 +36,9 @@ $sudo apt-get install libgl1-mesa-dev
 $sudo apt-get install freeglut3-dev
 $sudo apt-get install libglew-dev libsdl2-dev libsdl2-image-dev libglm-dev libfreetype6-dev
 ```
-#####[OpenGL详细配置请见OpenGL官网](https://en.wikibooks.org/wiki/OpenGL_Programming/Installation/Linux)
+##### [OpenGL详细配置请见OpenGL官网](https://en.wikibooks.org/wiki/OpenGL_Programming/Installation/Linux)
 
-#####[SDL2详细配置请见SDL2官网](https://www.libsdl.org/)
+##### [SDL2详细配置请见SDL2官网](https://www.libsdl.org/)
 
 ## 2.下载Bino_Stereo_SDK
 ```

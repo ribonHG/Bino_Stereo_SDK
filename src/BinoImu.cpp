@@ -28,13 +28,14 @@ BinoCameraParameterList paraList;
 void *getImuData( void *arg ){
 	std::vector<ImuData> imudatas;
 	ImuData imudata;
-	int32_t current_time=0,old_time=0;
+	uint32_t current_time=0,old_time=0;
 	float timestamp = 0.0;	
-	int32_t time_image = 0;
+	uint32_t time_image = 0;
 	float q[4] = {0};
 	std::shared_ptr<BinoCamera> camera(new BinoCamera(paraList));
 	camera->setImuCorrection(deadmin,deadmax,axerr,ayerr,azerr);
 	for(;;){
+		camera->Grab();
 		camera->getImuRawData(imudatas,time_image);
 		size_t size = imudatas.size();
 		for(uint8_t i = 0;i < size;i++){

@@ -12,9 +12,11 @@
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-{\bfseries Bino\+Camera} (\hyperlink{structBinoCameraParameterList}{Bino\+Camera\+Parameter\+List} para\+List)\hypertarget{classBinoCamera_a6fd6ce57220e1d4bd1dcfa2a72d7014c}{}\label{classBinoCamera_a6fd6ce57220e1d4bd1dcfa2a72d7014c}
+\hyperlink{classBinoCamera_a6fd6ce57220e1d4bd1dcfa2a72d7014c}{Bino\+Camera} (\hyperlink{structBinoCameraParameterList}{Bino\+Camera\+Parameter\+List} para\+List)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classBinoCamera}{Bino\+Camera} 构造函数 \end{DoxyCompactList}\item 
+void \hyperlink{classBinoCamera_a0fae8840cca8c98e2a030c8243c0d42a}{Grab} ()\hypertarget{classBinoCamera_a0fae8840cca8c98e2a030c8243c0d42a}{}\label{classBinoCamera_a0fae8840cca8c98e2a030c8243c0d42a}
 
-\item 
+\begin{DoxyCompactList}\small\item\em 抓取一次相机数据，需要在主循环中调用 \end{DoxyCompactList}\item 
 void \hyperlink{classBinoCamera_a7e675afbd9b11a855b8816abe413f51b}{get\+Org\+Image} (cv\+::\+Mat \&L, cv\+::\+Mat \&R)
 \begin{DoxyCompactList}\small\item\em 得到双目原始图像 \end{DoxyCompactList}\item 
 void \hyperlink{classBinoCamera_a0ca8fdc7baebb847cec029094a1308d8}{get\+Rect\+Image} (cv\+::\+Mat \&L, cv\+::\+Mat \&R)
@@ -25,7 +27,7 @@ bool \hyperlink{classBinoCamera_a7dc100e891a67b59295e79b93241e16f}{get\+Camera\+
 \begin{DoxyCompactList}\small\item\em 获取相机参数 \end{DoxyCompactList}\item 
 void \hyperlink{classBinoCamera_a6bf7b4beec317a6e7bc8a66f3f255fd7}{set\+Imu\+Correction} (float deadmin, float deadmax, float axerr, float ayerr, float azerr)
 \begin{DoxyCompactList}\small\item\em imu原始数据校正 \end{DoxyCompactList}\item 
-void \hyperlink{classBinoCamera_a1e556254521060a48ddd6678bc9a3380}{get\+Imu\+Raw\+Data} (std\+::vector$<$ \hyperlink{structImuData}{Imu\+Data} $>$ \&imudatas, int32\+\_\+t \&timestamp)
+void \hyperlink{classBinoCamera_aa8bfc29050c583efb840f391c2e94263}{get\+Imu\+Raw\+Data} (std\+::vector$<$ \hyperlink{structImuData}{Imu\+Data} $>$ \&imu\+Datas, uint32\+\_\+t \&timestamp)
 \begin{DoxyCompactList}\small\item\em 得到imu原始数据 \end{DoxyCompactList}\item 
 void \hyperlink{classBinoCamera_a5662fa1d861687af9577508be18ae29d}{Imu\+Rect} (\hyperlink{structImuData}{Imu\+Data} imu, float timestamp, float $\ast$q)
 \begin{DoxyCompactList}\small\item\em imu解算程序 \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -33,6 +35,25 @@ void \hyperlink{classBinoCamera_a5662fa1d861687af9577508be18ae29d}{Imu\+Rect} (\
 
 \subsection{Detailed Description}
 \hyperlink{classBinoCamera}{Bino\+Camera} 类头文件 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Bino\+Camera@{Bino\+Camera}!Bino\+Camera@{Bino\+Camera}}
+\index{Bino\+Camera@{Bino\+Camera}!Bino\+Camera@{Bino\+Camera}}
+\subsubsection[{\texorpdfstring{Bino\+Camera(\+Bino\+Camera\+Parameter\+List para\+List)}{BinoCamera(BinoCameraParameterList paraList)}}]{\setlength{\rightskip}{0pt plus 5cm}Bino\+Camera\+::\+Bino\+Camera (
+\begin{DoxyParamCaption}
+\item[{{\bf Bino\+Camera\+Parameter\+List}}]{para\+List}
+\end{DoxyParamCaption}
+)}\hypertarget{classBinoCamera_a6fd6ce57220e1d4bd1dcfa2a72d7014c}{}\label{classBinoCamera_a6fd6ce57220e1d4bd1dcfa2a72d7014c}
+
+
+\hyperlink{classBinoCamera}{Bino\+Camera} 构造函数 
+
+
+\begin{DoxyParams}{Parameters}
+{\em para\+List} & 传入的相机启动参数 \\
+\hline
+\end{DoxyParams}
+
 
 \subsection{Member Function Documentation}
 \index{Bino\+Camera@{Bino\+Camera}!get\+Camera\+Parameter@{get\+Camera\+Parameter}}
@@ -75,12 +96,12 @@ void \hyperlink{classBinoCamera_a5662fa1d861687af9577508be18ae29d}{Imu\+Rect} (\
 \end{DoxyParams}
 \index{Bino\+Camera@{Bino\+Camera}!get\+Imu\+Raw\+Data@{get\+Imu\+Raw\+Data}}
 \index{get\+Imu\+Raw\+Data@{get\+Imu\+Raw\+Data}!Bino\+Camera@{Bino\+Camera}}
-\subsubsection[{\texorpdfstring{get\+Imu\+Raw\+Data(std\+::vector$<$ Imu\+Data $>$ \&imudatas, int32\+\_\+t \&timestamp)}{getImuRawData(std::vector< ImuData > &imudatas, int32_t &timestamp)}}]{\setlength{\rightskip}{0pt plus 5cm}void Bino\+Camera\+::get\+Imu\+Raw\+Data (
+\subsubsection[{\texorpdfstring{get\+Imu\+Raw\+Data(std\+::vector$<$ Imu\+Data $>$ \&imu\+Datas, uint32\+\_\+t \&timestamp)}{getImuRawData(std::vector< ImuData > &imuDatas, uint32_t &timestamp)}}]{\setlength{\rightskip}{0pt plus 5cm}void Bino\+Camera\+::get\+Imu\+Raw\+Data (
 \begin{DoxyParamCaption}
-\item[{std\+::vector$<$ {\bf Imu\+Data} $>$ \&}]{imudatas, }
-\item[{int32\+\_\+t \&}]{timestamp}
+\item[{std\+::vector$<$ {\bf Imu\+Data} $>$ \&}]{imu\+Datas, }
+\item[{uint32\+\_\+t \&}]{timestamp}
 \end{DoxyParamCaption}
-)}\hypertarget{classBinoCamera_a1e556254521060a48ddd6678bc9a3380}{}\label{classBinoCamera_a1e556254521060a48ddd6678bc9a3380}
+)}\hypertarget{classBinoCamera_aa8bfc29050c583efb840f391c2e94263}{}\label{classBinoCamera_aa8bfc29050c583efb840f391c2e94263}
 
 
 得到imu原始数据 
@@ -89,7 +110,7 @@ void \hyperlink{classBinoCamera_a5662fa1d861687af9577508be18ae29d}{Imu\+Rect} (\
 \begin{DoxyParams}{Parameters}
 {\em imudatas} & imu的原始数据 \\
 \hline
-{\em timestamp} & 图像帧曝光时刻的时间戳 \\
+{\em timestamp} & 图像帧曝光时刻的时间 \\
 \hline
 \end{DoxyParams}
 \index{Bino\+Camera@{Bino\+Camera}!get\+Org\+Image@{get\+Org\+Image}}

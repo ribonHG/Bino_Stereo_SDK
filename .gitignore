@@ -1,4 +1,5 @@
 build/
+bin/
 *~
 *.pcd
 *.swp
@@ -6,4 +7,3 @@ build/
 Debug/src/
 params/11_27/
 params_bak/
-bin/

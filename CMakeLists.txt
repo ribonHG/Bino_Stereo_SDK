@@ -51,16 +51,13 @@ set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 add_executable(BinoStereo src/BinoStereo.cpp)
 target_link_libraries(BinoStereo 
 	${OpenCV_LIBS}
-	#${PROJECT_SOURCE_DIR}/lib/libBinoCamera.so
 	${PROJECT_SOURCE_DIR}/lib/libBino_Stereo_SDK.so
 	)
 
-#set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 add_executable(BinoImu src/BinoImu.cpp src/CLRRenderSDL.cpp)
 target_link_libraries(BinoImu pthread 
 	${OpenCV_LIBS}
 	${SDL2_LIBRARIES}
 	${OPENGL_LIBRARIES}
-	#${PROJECT_SOURCE_DIR}/lib/libBinoCamera.so
 	${PROJECT_SOURCE_DIR}/lib/libBino_Stereo_SDK.so
 	)

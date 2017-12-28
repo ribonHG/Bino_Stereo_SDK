@@ -54,10 +54,7 @@ $source ~/.bashrc
 ## 4.编译例子程序
 ```
 $cd <sdk directory>
-$mkdir build
-$cd build
-$cmake ..
-$make
+$./build.sh
 ```
 ## 5.快速使用例子程序
 ```
